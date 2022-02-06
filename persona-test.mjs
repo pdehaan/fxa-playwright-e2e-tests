@@ -1,50 +1,54 @@
 import Persona from "./lib/persona.mjs";
-// import StripeCreditCards from "./lib/stripe-credit-cards.mjs";
+import StripeCreditCards from "./lib/stripe-credit-cards.mjs";
 
 // Use any random Stripe credit card.
-const user1 = new Persona().valueOf();
-// console.log(user1.valueOf());
-
-console.log(user1.email);
-
-/*
+// NOTE: The credit card type argument is optional. Default will return a random
+// Visa, Mastercard, American Express, or Discover card (or maybe Diners Club, JCB, or UnionPay).
+const user1 = new Persona(StripeCreditCards.VISA);
+console.log(user1.valueOf());
+/* OUTPUT: This is an raw object.
   {
     name: {
-      firstName: 'Melisa',
-      lastName: 'Walter',
-      fullName: 'Melisa Walter'
+      firstName: 'Rollin',
+      lastName: 'Turner',
+      fullName: 'Rollin Turner'
     },
-    email: 'Melisa.Walter9@restmail.net',
-    password: 'Melisa.Walter9restmail.net',
-    zipCode: '06558',
+    email: 'Rollin.Turner18@restmail.net',
+    website: 'https://restmail.net/mail/Rollin.Turner18@restmail.net',
+    password: 'Rollin.Turner18restmail.net',
+    zipCode: '60112',
     cc: {
-      number: '6200000000000005',
-      brand: 'UnionPay',
+      number: '4242424242424242',
+      brand: 'Visa',
       _cvv: 'Any 3 digits',
-      cvv: '414',
+      cvv: '529',
       _exp: 'Any future date',
-      exp: { month: 7, year: 2031 }
+      exp: { month: 6, year: 24 }
     }
   }
 */
 
-// Use any random VISA Stripe credit card.
-// const user2 = new Persona(StripeCreditCards.VISA);
-// console.log(user2.valueOf());
-/*
+console.log(JSON.stringify(user1, null, 2));
+/* OUTPUT: This is a string (and note it removed the `cc._cvv` and `cc._exp` properties).
   {
-    name: { firstName: 'Saige', lastName: 'Batz', fullName: 'Saige Batz' },
-    email: 'Saige_Batz6@restmail.net',
-    password: 'Saige_Batz6restmail.net',
-    zipCode: '21003-3461',
-    cc: {
-      number: '4000056655665556',
-      note: 'debit',
-      brand: 'Visa',
-      _cvv: 'Any 3 digits',
-      cvv: '958',
-      _exp: 'Any future date',
-      exp: { month: 2, year: 2023 }
-    }
+    "name": {
+      "firstName": "Rollin",
+      "lastName": "Turner",
+      "fullName": "Rollin Turner"
+    },
+    "email": "Rollin.Turner18@restmail.net",
+    "website": "https://restmail.net/mail/Rollin.Turner18@restmail.net",
+    "password": "Rollin.Turner18restmail.net",
+    "zipCode": "60112",
+    "cc": {
+      "number": "4242424242424242",
+      "brand": "Visa",
+      "cvv": "529",
+      "exp": {
+        "month": 6,
+        "year": 24
+      }
+    },
+    "_faker": true
   }
 */
