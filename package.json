@@ -1,0 +1,42 @@
+{
+  "name": "fxa-playwright-e2e-tests",
+  "description": "Testing Playwright w/ FxA/SubPlat.",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com>",
+  "bugs": {
+    "url": "https://github.com/pdehaan/fxa-playwright-e2e-tests/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.5",
+    "@playwright/test": "^1.18.1",
+    "@sindresorhus/slugify": "^2.1.0",
+    "axios": "^0.25.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "homepage": "https://github.com/pdehaan/fxa-playwright-e2e-tests#readme",
+  "keywords": [
+    "playwright",
+    "restmail",
+    "stripe",
+    "subplat"
+  ],
+  "license": "MPL-2.0",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdehaan/fxa-playwright-e2e-tests.git"
+  },
+  "scripts": {
+    "playwright:codegen": "playwright codegen https://www-dev.allizom.org/en-US/products/vpn/",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:persona": "node persona-test.mjs",
+    "test:restmail": "node restmail-test.mjs"
+  },
+  "type": "module"
+}
