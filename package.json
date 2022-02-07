@@ -6,12 +6,12 @@
   "bugs": {
     "url": "https://github.com/pdehaan/fxa-playwright-e2e-tests/issues"
   },
-  "dependencies": {},
   "devDependencies": {
     "@faker-js/faker": "^6.0.0-alpha.5",
     "@playwright/test": "^1.18.1",
     "@sindresorhus/slugify": "^2.1.0",
-    "axios": "^0.25.0"
+    "axios": "^0.25.0",
+    "cheerio": "^1.0.0-rc.10"
   },
   "directories": {
     "lib": "lib",
@@ -36,7 +36,8 @@
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:persona": "node persona-test.mjs",
-    "test:restmail": "node restmail-test.mjs"
+    "test:restmail": "node restmail-test.mjs",
+    "test:restmail-cheerio": "node restmail.cheerio-test.mjs"
   },
   "type": "module"
 }
